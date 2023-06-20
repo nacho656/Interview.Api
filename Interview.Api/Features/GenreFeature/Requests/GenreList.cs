@@ -27,7 +27,7 @@ namespace Interview.Api.Features.GenreFeature.Requests
 
             public async Task<IEnumerable<GenreDto>> Handle(Request request, CancellationToken cancellationToken)
             {
-                //Todo: Alphabetize return Genres
+                //Todo: 02 - Alphabetize return Genres
                 return await db.Genres.AsNoTracking()
                     .ProjectTo<GenreDto>(mapper.ConfigurationProvider)
                     .ToListAsync();

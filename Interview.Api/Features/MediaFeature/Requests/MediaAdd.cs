@@ -6,16 +6,16 @@ namespace Interview.Api.Features.MediaFeature.Requests
     {
         public class Request : IRequest<Unit>
         {
-            /*Todo: Add properties here for adding Media*/
+            /*Todo: 04 - Add properties here for adding Media (Title, Release Date, Genre)*/
         }
 
         public class RequestHandler : IRequestHandler<Request, Unit>
         {
-            //Todo: Dependency Inject DB via IApiContext
+            //Todo: 05 - Dependency Inject DB via IApiContext
 
             public Task<Unit> Handle(Request request, CancellationToken cancellationToken)
             {
-                //Todo: Add Media to Db
+                //Todo: 06 - Add Media to Db
                 return Task.FromResult(Unit.Value);
             }
         }
