@@ -27,8 +27,8 @@ namespace Interview.Api.Features.MediaFeature.Requests
 
             public async Task<IEnumerable<MediaDto>> Handle(Request request, CancellationToken cancellationToken)
             {
-                //Todo: 01 - Update to only Show Active Movies
-                //Todo: 03 - Allow Searching by Title and Genre Id
+                //Todo: 01 - Update below EF query to only return Active Media
+                //Todo: 03 - Allow query to be filtered by Title and Genre Id
                 return await db.Media.AsNoTracking()
                     .ProjectTo<MediaDto>(mapper.ConfigurationProvider)
                     .ToListAsync();

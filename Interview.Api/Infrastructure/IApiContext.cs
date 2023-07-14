@@ -7,6 +7,6 @@ namespace Interview.Api.Infrastructure
     {
         DbSet<Genre> Genres { get; set; }
         DbSet<Media> Media { get; set; }
-
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
