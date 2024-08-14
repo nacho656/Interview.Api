@@ -5,8 +5,7 @@ namespace Interview.Api.Features.MediaFeature.Requests
     public class MediaAdd
     {
         public class Request : IRequest<Unit>
-        {
-            /*Todo: 04 - Add properties here for adding Media (Title, Release Date, Genre)*/
+        {            
         }
 
         public class RequestHandler : IRequestHandler<Request, Unit>
