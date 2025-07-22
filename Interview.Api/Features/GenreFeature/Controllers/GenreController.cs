@@ -1,5 +1,4 @@
-﻿using Interview.Api.Features.GenreFeature.Requests;
-using MediatR;
+﻿using Interview.Api.Features.GenreFeature.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Interview.Api.Features.GenreFeature.Controllers
@@ -8,18 +7,17 @@ namespace Interview.Api.Features.GenreFeature.Controllers
     [ApiController]
     public class GenreController : ControllerBase
     {
-        private readonly IMediator mediator;
+        private readonly IGenreRepository repo;
 
-        public GenreController(IMediator mediator)
+        public GenreController(IGenreRepository repo)
         {
-            this.mediator = mediator;
+            this.repo = repo;
         }
 
         [HttpGet]
         public async Task<IActionResult> List(CancellationToken cancellationToken)
         {
-            return Ok(await mediator.Send(new GenreList.Request(), cancellationToken));
-        }
-        
+            return Ok(await repo.List(cancellationToken));
+        }        
     }
 }

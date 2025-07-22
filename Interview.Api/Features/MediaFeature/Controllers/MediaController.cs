@@ -1,5 +1,4 @@
-﻿using Interview.Api.Features.MediaFeature.Requests;
-using MediatR;
+﻿using Interview.Api.Features.MediaFeature.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Interview.Api.Features.MediaFeature.Controllers
@@ -8,24 +7,25 @@ namespace Interview.Api.Features.MediaFeature.Controllers
     [ApiController]
     public class MediaController : ControllerBase
     {
-        private readonly IMediator mediator;
+        private readonly IMediaRepository repo;
 
-        public MediaController(IMediator mediator)
+        public MediaController(IMediaRepository repo)
         {
-            this.mediator = mediator;
+            this.repo = repo;
         }
+
         [HttpGet]
         public async Task<IActionResult> List(CancellationToken cancellationToken)
         {
-            /*Todo: 04 - Take in the Title & Genre from query string. */
-            return Ok(await mediator.Send(new MediaList.Request(), cancellationToken));
+            /*TODO: 04 - Take in the Title & Genre from query string. */            
+            return Ok(await repo.List(cancellationToken));
         }
 
         /*
         public IActionResult Add(CancellationToken cancellationToken)
         {
             //Get data from HTTP request
-            mediator.Send(new MediaAdd.Request(), cancellationToken);
+            //Send Data to Repository
             return Ok();
         }
         */

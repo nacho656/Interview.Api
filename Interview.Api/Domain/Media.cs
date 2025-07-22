@@ -9,6 +9,6 @@
         public bool IsActive { get; set; }
         public virtual Genre Genre { get; set; }
 
-        //Todo: 99 - Add Media Type Property with Lookup Table that has data of: Movie, TV Show         
+        //TODO: 99 - Add Media Type Property with Lookup Table that has data of: Movie, TV Show         
     }
 }
