@@ -17,7 +17,7 @@ namespace Interview.Api.Features.MediaFeature.Controllers
         [HttpGet]
         public async Task<IActionResult> List(CancellationToken cancellationToken)
         {
-            /*TODO: 04 - Take in the Title & Genre from query string. */            
+            //TODO: 04 - Take in the Title & Genre from query string
             return Ok(await repo.List(cancellationToken));
         }
 
